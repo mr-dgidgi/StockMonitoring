@@ -3,6 +3,11 @@ Python script to create stocks time series in influxdb
 It simply ceate en entry with the last price, the number of stocks and the price spent to buy the current stocks
 This script has been made to work with influxdb 2.x so if you whant to use 1.8 you will have to change some things on the script.
 
+To create this script I was inspired by these 2 articles : 
+
+https://www.scrapingdog.com/blog/scrape-google-finance/
+https://pbrissaud.github.io/suivi-bourse/
+
 ## config.ini
 just the basic data to setum the connexion to the influxdb
 
@@ -49,3 +54,6 @@ For the script you also need some packages from pip (so install pip before ;) )
     pip3 install beautifulsoup4
     pip3 install requests
 
+## cron.d/StockMonitoring
+
+If you don't know what to do with that file I think you shouldn't try to use this project.
