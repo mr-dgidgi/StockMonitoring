@@ -1,0 +1,16 @@
+{
+	"stocks": [
+		{
+			"name": "FistStock",
+			"sigle": "XXXX",
+			"quantity": 1,
+			"spent": 1
+		},
+		{
+			"name": "SecondStock",
+			"sigle": "YYYY",
+			"quantity": 1,
+			"spent": 1
+		}
+	]
+}
