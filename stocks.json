@@ -2,13 +2,15 @@
 	"stocks": [
 		{
 			"name": "FistStock",
-			"sigle": "XXXX",
+			"index": "yyy",
+			"symbol": "XXXX",
 			"quantity": 1,
 			"spent": 1
 		},
 		{
 			"name": "SecondStock",
-			"sigle": "YYYY",
+			"index": "xxx",
+			"symbol": "YYYY",
 			"quantity": 1,
 			"spent": 1
 		}
