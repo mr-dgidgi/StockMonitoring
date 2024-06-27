@@ -4,15 +4,27 @@
 			"name": "FistStock",
 			"index": "yyy",
 			"symbol": "XXXX",
-			"quantity": 1,
-			"spent": 1
+			"portfolio": [
+				{	
+					"datebought":"YYYY-MM-DD",
+					"datesell":"",
+					"quantity": 0.482412,
+					"price": 49.00,
+					"pricesell": 0
+				}
 		},
 		{
 			"name": "SecondStock",
 			"index": "xxx",
 			"symbol": "YYYY",
-			"quantity": 1,
-			"spent": 1
+			"portfolio": [
+				{	
+					"datebought":"YYYY-MM-DD",
+					"datesell":"",
+					"quantity": 1,
+					"price": 49.00,
+					"pricesell": 0
+				}
 		}
 	]
 }
