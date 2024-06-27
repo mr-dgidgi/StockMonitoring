@@ -12,6 +12,7 @@
 #  
 #  v1 : fist version
 #  v2 : switch from yahoo data to google finance
+#  v2.1 : data structure modification
 #
 ##################################################################
 
@@ -31,6 +32,7 @@ Org=Config.get('influx2', 'org')
 
 # set influxDB connexion
 Client = InfluxDBClient.from_config_file("config.ini")
+Write_api = Client.write_api(write_options=WriteOptions(flush_interval=300, max_retry_time=100))
 
 # set google finance var
 BaseUrl="https://www.google.com/finance"
@@ -51,21 +53,38 @@ with open('stocks.json') as data_file:
         CurrentValue=soup.find("div", {"class": "YMlKec fxKbKc"}).text.replace('€', '')
         CurrentValue = float(CurrentValue)
         #fill data for influxdb
-        JsonBody = [{
-            "measurement": "cours",
+        JsonBodyStocks = [{
+            "measurement": "stocks",
             "tags": {
                 "name": action['name'],
                 "symbol": action['symbol'],
-                "index" : action["index"]
-            },
+                "index" : action['index']
+                },
             "fields": {
-                "price": CurrentValue,
-                "quantity": action['quantity'],
-                "cost": action['spent']
+                "price": CurrentValue
+                }
             }
-        }]
-        # send data to influxdb
-        Write_api = Client.write_api(write_options=WriteOptions(flush_interval=300, max_retry_time=100))
-        Write_api.write("Stocks", Org, JsonBody)
+        ]
+        for portfolio in action['portfolio']:
+            JsonBodyPortfolio = [{
+                "measurement": "portfolio",
+                    "tags": {
+                    "name": action['name'],
+                    "symbol": action['symbol'],
+                    "index" : action['index']
+                    },
+                "fields": {
+                    "quantity":portfolio['quantity'],
+                    "price":portfolio['price'],
+                    "datebought":portfolio['datebought'],
+                    "datesell":portfolio['datesell'],
+                    "pricesell":portfolio['pricesell']
+                    }
+
+            }]
+            # send data to influxdb
+            Write_api.write("Stocks", Org, JsonBodyPortfolio)
+        Write_api.write("Stocks", Org, JsonBodyStocks)
         print(action["name"])
-        time.sleep(5)
+        time.sleep(1)
+
