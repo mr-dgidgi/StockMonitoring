@@ -19,8 +19,13 @@ The must important part for the basic user
 | name                          | a common name for the stock                            |
 | index                         | the place where the stock is sale (NDAQ, FRA, EPA ...) |
 | symbol                        | the common symbol of the stock                         |
-| quantity                      | the number of stock that you have                      |
-| spent                         | money spent to buy the stocks                          |
+| portfolio[]                   | table containing owned stocks info                     |
+| portfolio.datebought          | date when the stock has been bought                    |
+| portfolio.datesell            | date when the stock has been sold                      |
+| portfolio.quantity            | the number of stock that you have                      |
+| portfolio.price               | money spent to buy the stocks                          |
+| portfolio.pricesell           | selling price of the stock                             |
+
 
 ### Exemple : 
 
@@ -31,15 +36,29 @@ in this exemple whe have 0.5 stock from IT6 sold on Frankfurt (FRA) brought at 5
                         "name": "Itron",
                         "index": "FRA",
                         "symbol": "IT6",
-                        "quantity": 0.5,
-                        "spent": 50.00
+                        "portfolio": [
+				{	
+					"datebought":"2024-06-17",
+     					"datesell":"",
+					"quantity": 0.5,
+					"price": 50.00,
+					"pricesell": 0
+				}
+                            ]
                 },
                 {
                         "name": "NVIDIA",
                         "index": "NDAQ",
                         "symbol": "NVDA",
-                        "quantity": 10,
-                        "spent": 1000
+                        "portfolio": [
+				{	
+					"datebought":"2024-06-17",
+     					"datesell":"",
+					"quantity": 10,
+					"price": 1000.00,
+					"pricesell": 0
+				}
+                            ]
                 }
 If you don't know what is the index and the symbol go to google finance and check the url of the stock that you want. ex : [https://www.google.com/finance/quote/**IT6**:**FRA**](https://www.google.com/finance/quote/IT6:FRA)
 
