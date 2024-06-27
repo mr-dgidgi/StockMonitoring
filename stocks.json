@@ -12,6 +12,7 @@
 					"price": 49.00,
 					"pricesell": 0
 				}
+			]
 		},
 		{
 			"name": "SecondStock",
@@ -25,6 +26,7 @@
 					"price": 49.00,
 					"pricesell": 0
 				}
+			]
 		}
 	]
 }
